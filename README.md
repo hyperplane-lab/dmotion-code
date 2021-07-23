@@ -66,10 +66,10 @@ Please visit https://github.com/stepjam/PyRep, and follow the installation on th
 
 ### Generate Dataset and Train:
 
-1. Use `python -m datagen.roboarm.py --increment 20` to generate trajectories, as the simulation gets slower, please only generate around 20-100 (--increment) trajectories at a time. When generating a second batch, please use `python -m datagen.roboarm.py --increment 20 --eps [number of eps generated before + increment]` for the sake of naming convention.
-2. [Optional] If generated multiple batches of trajectories, use `python -m rename.py --folders [number of folders you generated in step 1]` to move all files into a single folder.
-3. Train: `python -m train.py --dataset_name roboarm --data_path datagen/roboarm --size 64 --no_graph --contrastive_coeff 0 --save_path checkpoint`
-4. Test: `python -m test.py --dataset_name roboarm --data_path datagen/roboarm --size 64 --no_graph --contrastive_coeff 0 --test_model_path checkpoint/model_49.pth --test_save_path test`
+1. Use `python -m datagen.roboarm --increment 20` to generate trajectories, as the simulation gets slower, please only generate around 20-100 (--increment) trajectories at a time. When generating a second batch, please use `python -m datagen.roboarm --increment 20 --eps [number of eps generated before + increment]` for the sake of naming convention.
+2. [Optional] If generated multiple batches of trajectories, use `python -m rename --folders [number of folders you generated in step 1]` to move all files into a single folder.
+3. Train: `python -m train --dataset_name roboarm --data_path datagen/roboarm --size 64 --no_graph --contrastive_coeff 0 --save_path checkpoint`
+4. Test: `python -m test --dataset_name roboarm --data_path datagen/roboarm --size 64 --no_graph --contrastive_coeff 0 --test_model_path checkpoint/model_49.pth --test_save_path test`
 
 ### Model Predictive Control
 
@@ -83,11 +83,11 @@ Create csv file logging the trajectory IDs and time step you wish to perform MPC
    | 200     | 0         | 29      |
    | 201     | 8         | 37      |
 
-Run `python -m rename_mpc.py --folders 1` to combine all json state files into one for MPC dataset. Change the `--folders` argument according to the maximum ID of the trajectories manually selected. Run `python -m move_mpc.py` to get all trajectories to the right place.
+Run `python -m rename_mpc --folders 1` to combine all json state files into one for MPC dataset. Change the `--folders` argument according to the maximum ID of the trajectories manually selected. Run `python -m move_mpc` to get all trajectories to the right place.
 
 ** Test for MPC **
 
- `python -m mpc_multi.py`
+ `python -m mpc_multi`
  
  
 ## Citation

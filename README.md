@@ -73,7 +73,7 @@ Please visit https://github.com/stepjam/PyRep, and follow the installation on th
 
 ### Model Predictive Control
 
-** Generate data for MPC**
+#### Generate data for MPC
 
 Create csv file logging the trajectory IDs and time step you wish to perform MPC on  
 
@@ -85,7 +85,7 @@ Create csv file logging the trajectory IDs and time step you wish to perform MPC
 
 Run `python -m rename_mpc --folders 1` to combine all json state files into one for MPC dataset. Change the `--folders` argument according to the maximum ID of the trajectories manually selected. Run `python -m move_mpc` to get all trajectories to the right place.
 
-** Test for MPC **
+#### Test for MPC
 
  `python -m mpc_multi`
  
